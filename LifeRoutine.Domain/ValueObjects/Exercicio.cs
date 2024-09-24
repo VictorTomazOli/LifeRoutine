@@ -4,6 +4,7 @@ namespace LifeRoutine.Domain.ValueObjects;
 
 public class Exercicio
 {
+    protected Exercicio() { }
     public Exercicio(string nome, int numero_de_repeticoes, int numero_de_series, IEnumerable<EDiasDaSemana> diasDaSemana)
     {
         Nome = nome;

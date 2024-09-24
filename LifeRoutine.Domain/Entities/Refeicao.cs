@@ -2,11 +2,12 @@
 
 public class Refeicao : BaseEntity
 {
-    public Refeicao(DateTime dataDeCriacao, IEnumerable<Alimento> alimentos)
+    protected Refeicao() { }
+    public Refeicao(DateTime dataDeCriacao, List<Alimento> alimentos)
     {
         DataDeCriacao = dataDeCriacao;
         Alimentos = alimentos;
     }
     public DateTime DataDeCriacao { get; private set; }
-    public IEnumerable<Alimento> Alimentos { get; private set; }
+    public List<Alimento> Alimentos { get; private set; }
 }

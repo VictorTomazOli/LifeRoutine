@@ -4,6 +4,7 @@ namespace LifeRoutine.Domain.Entities;
 
 public class Usuario : BaseEntity
 {
+    protected Usuario() { }
     public Usuario(string nome, Email email, Senha senha, DateTime dataNascimento)
     {
         Nome = nome;

@@ -1,6 +1,4 @@
-﻿using LifeRoutine.Domain.Entities;
-
-namespace LifeRoutine.Domain;
+﻿namespace LifeRoutine.Domain.Entities;
 
 public class FichaAlimentacao : BaseEntity
 {

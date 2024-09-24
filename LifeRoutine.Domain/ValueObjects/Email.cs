@@ -4,6 +4,7 @@ namespace LifeRoutine.Domain.ValueObjects;
 
 public class Email
 {
+    protected Email() { }
     public string EnderecoDeEmail { get; private set; } = string.Empty;
 
     public bool ValidarEmail()

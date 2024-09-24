@@ -2,6 +2,7 @@
 
 public class Senha
 {
+    protected Senha() { }
     public Senha(string senha)
     {
         CriptografarSenha(senha);
@@ -15,8 +16,8 @@ public class Senha
         //Hash na senha antes de ir para o banco
     }
 
-    public bool VerificacaoDeSenha(string senhaTestar)
+    /*public bool VerificacaoDeSenha(string senhaTestar)
     {
         // Verifica se a senha esta valida no login
-    }
+    }*/
 }

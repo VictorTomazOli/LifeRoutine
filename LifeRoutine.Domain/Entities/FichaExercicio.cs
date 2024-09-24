@@ -4,6 +4,7 @@ namespace LifeRoutine.Domain.Entities;
 
 public class FichaExercicio : BaseEntity
 {
+    protected FichaExercicio() { }
     public FichaExercicio(List<Exercicio> exercicios)
     {
         Guid = Guid.NewGuid();
@@ -14,5 +15,5 @@ public class FichaExercicio : BaseEntity
     public int UsuarioId { get; private set; }
     public Usuario Usuario { get; private set; } = null!;
     public DateTime DataCriacao { get; private set; }
-    public List<Exercicio> Exercicios { get; private set; }
+    public List<Exercicio> Exercicios { get; private set; } = null!;
 }

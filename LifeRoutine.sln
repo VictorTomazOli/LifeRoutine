@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeRoutine.Domain", "LifeR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeRoutine.Infra", "LifeRoutine.Infra\LifeRoutine.Infra.csproj", "{F1EEE548-B2A0-45EE-A8B8-9533321EFC77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeRoutine.Api", "LifeRoutine.Api\LifeRoutine.Api.csproj", "{F7ABA47C-F137-4F8A-97AE-376AE90E0E42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F1EEE548-B2A0-45EE-A8B8-9533321EFC77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1EEE548-B2A0-45EE-A8B8-9533321EFC77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1EEE548-B2A0-45EE-A8B8-9533321EFC77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7ABA47C-F137-4F8A-97AE-376AE90E0E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7ABA47C-F137-4F8A-97AE-376AE90E0E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7ABA47C-F137-4F8A-97AE-376AE90E0E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7ABA47C-F137-4F8A-97AE-376AE90E0E42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

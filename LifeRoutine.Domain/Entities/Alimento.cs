@@ -4,6 +4,7 @@ namespace LifeRoutine.Domain.Entities;
 
 public class Alimento : BaseEntity
 {
+    protected Alimento() { }
     public Alimento(string nome, EgrupoAlimentar grupoAlimentar)
     {
         Nome = nome;
