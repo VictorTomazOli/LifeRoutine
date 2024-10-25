@@ -1,6 +1,10 @@
-using LifeRoutineV0.Domain.Requests.UsuarioRequests;
-using LifeRoutineV0.Domain.Responses;
+using LifeRoutineV0.Application.Handlers;
+using LifeRoutineV0.Domain.Handlers;
+using LifeRoutineV0.Domain.Repositories;
+using LifeRoutineV0.Domain.Requests.AlimentoRequests;
 using LifeRoutineV0.Infra.Context;
+using LifeRoutineV0.Infra.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,9 @@ builder.Services.AddDbContext<LifeRoutineV0DbContext>
             (options => options.UseSqlServer(connectionString,
             b => b.MigrationsAssembly("LifeRoutineV0.Infra")));
 
+builder.Services.AddScoped<IAlimentoRepository, AlimentoRepository>();
+builder.Services.AddScoped<IAlimentoHandler, AlimentoHandler>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -21,11 +28,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/teste", teste);
 
-IResult teste(AtualizarUsuarioRequest request)
+app.MapGet("/", teste2);
+app.MapPost("/", teste);
+
+async Task<IResult> teste(IAlimentoHandler handler, CriarAlimentoRequest request)
 {
-    return TypedResults.Ok(new Response<string>($"{request.UserId}"));
+    var result = await handler.CriarAsync(request);
+    return result.IsSuccess ? TypedResults.Created($"{result.Data?.Id}", result) : TypedResults.BadRequest(result);
+}
+
+async Task<IResult> teste2(IAlimentoHandler handler, [FromQuery]int pageNumber, [FromQuery]int pageSize)
+{
+    var request = new ListarAlimentoRequest { PageNumber = pageNumber , PageSize = pageNumber};
+    var result = await handler.ListarAsync(request);
+    return result.IsSuccess ? TypedResults.Ok(result) : TypedResults.BadRequest(result);
 }
 
 app.UseSwagger();
