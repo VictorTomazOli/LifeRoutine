@@ -29,6 +29,8 @@ public class FichaAlimentacaoMapping : IEntityTypeConfiguration<FichaAlimentacao
         builder.HasMany(x => x.Refeicoes)
             .WithOne()
             .IsRequired(false)
+            .HasForeignKey("FichaAlimentacaoId")
+            .HasConstraintName("FK_FichaAlimentacao_Refeicoes")
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

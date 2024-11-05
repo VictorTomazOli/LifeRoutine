@@ -9,4 +9,5 @@ public class AtualizarUsuarioRequest : Request
 
     [EmailAddress(ErrorMessage = "O Email é inválido")]
     public string Email { get; set; } = string.Empty;
+    public DateTime DataCriacao { get; set; }
 }

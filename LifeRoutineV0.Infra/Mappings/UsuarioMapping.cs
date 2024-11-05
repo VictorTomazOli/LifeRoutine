@@ -47,7 +47,8 @@ public class UsuarioMapping : IEntityTypeConfiguration<Usuario>
 
         builder.Property(x => x.FichaAlimentacaoId)
             .HasColumnName("FichaAlimentacaoId")
-            .HasColumnType("INT");
+            .HasColumnType("INT")
+            .IsRequired();
 
         builder.HasOne(x => x.FichaAlimentacao)
             .WithOne(x => x.Usuario)

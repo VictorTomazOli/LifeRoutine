@@ -101,8 +101,10 @@ public class AlimentoHandler(IAlimentoRepository repository) : IAlimentoHandler
     {
         try
         {
-            var query = await repository.ListarTodosAsync(x => x.GrupoAlimentar == (EGrupoAlimentar)request.GrupoAlimentar);
-            var count = await repository.Contagem(x => x.GrupoAlimentar == (EGrupoAlimentar)request.GrupoAlimentar);
+            var query = await repository.ListarTodosAsync
+                (where: x => x.GrupoAlimentar == (EGrupoAlimentar)request.GrupoAlimentar);
+
+            var count = await repository.Contagem(where: x => x.GrupoAlimentar == (EGrupoAlimentar)request.GrupoAlimentar);
 
             var alimentos = query.Skip(request.PageNumber - 1 * request.PageSize)
                 .Take(request.PageSize)

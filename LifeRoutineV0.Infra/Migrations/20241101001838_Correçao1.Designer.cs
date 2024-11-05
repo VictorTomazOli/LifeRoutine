@@ -4,6 +4,7 @@ using LifeRoutineV0.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LifeRoutineV0.Infra.Migrations
 {
     [DbContext(typeof(LifeRoutineV0DbContext))]
-    partial class LifeRoutineV0DbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101001838_Correçao1")]
+    partial class Correçao1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,8 +155,7 @@ namespace LifeRoutineV0.Infra.Migrations
                     b.HasOne("LifeRoutineV0.Domain.Entities.FichaAlimentacao", null)
                         .WithMany("Refeicoes")
                         .HasForeignKey("FichaAlimentacaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .HasConstraintName("FK_FichaAlimentacao_Refeicoes");
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("LifeRoutineV0.Domain.Entities.Usuario", b =>

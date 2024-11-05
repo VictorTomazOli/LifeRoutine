@@ -30,10 +30,10 @@ public class RefeicaoMapping : IEntityTypeConfiguration<Refeicao>
             .UsingEntity<Dictionary<string, object>>
             ("RefeicaoAlimento",
             refeicao => refeicao.HasOne<Alimento>().WithMany()
-            .HasForeignKey("RefeicaoId").HasConstraintName("FK_Refeicao_Alimentos")
+            .HasForeignKey("AlimentoId").HasConstraintName("FK_Refeicao_Alimentos")
             .OnDelete(DeleteBehavior.Cascade),
             alimento => alimento.HasOne<Refeicao>().WithMany()
-            .HasForeignKey("AlimentoId").HasConstraintName("FK_Alimentos_Refeicao")
+            .HasForeignKey("RefeicaoId").HasConstraintName("FK_Alimentos_Refeicao")
             .OnDelete(DeleteBehavior.Cascade));
     }
 }

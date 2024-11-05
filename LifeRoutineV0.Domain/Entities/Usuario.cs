@@ -20,4 +20,11 @@ public class Usuario : BaseEntity
     public DateTime DataNascimento { get; private set; }
     public int FichaAlimentacaoId { get; private set; }
     public FichaAlimentacao FichaAlimentacao { get; private set; }
+
+    public void AlterarUsuario(string nome, Email email, DateTime dataNascimento)
+    {
+        Nome = nome;
+        Email = email;
+        DataNascimento = dataNascimento;
+    }
 }

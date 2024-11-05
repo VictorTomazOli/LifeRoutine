@@ -2,5 +2,5 @@
 
 public class ListarFichaAlimentacaoRequest : PagedRequest
 {
-
+    public int Id { get; set; }
 }

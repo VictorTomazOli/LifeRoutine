@@ -6,11 +6,12 @@ namespace LifeRoutineV0.Domain.Handlers;
 
 public interface IFichaAlimentacaoHandler
 {
-    Task<Response<FichaAlimentacao?>> AdicionarRefeicaoNaFicha(AdicionarRefeicaoNaFichaRequest request);
-    Task<Response<FichaAlimentacao?>> AtualizarRefeicaoNaFicha(AtualizarRefeicaoNaFichaRequest request);
+    Task<Response<Refeicao?>> AdicionarRefeicaoNaFichaAsync(AdicionarRefeicaoNaFichaRequest request);
+    Task<Response<FichaAlimentacao?>> AtualizarRefeicaoNaFichaAsync(AtualizarRefeicaoNaFichaRequest request);
     Task<Response<FichaAlimentacao?>> CriarAsync(CriarFichaAlimentacaoRequest request);
     Task<Response<FichaAlimentacao?>> DeletarAsync(DeletarFichaAlimentacaoRequest request);
     Task<PagedResponse<FichaAlimentacao?>> ListarAsync(ListarFichaAlimentacaoRequest request);
-    Task<PagedResponse<List<Refeicao>?>> ListarRefeicaoPorTempo(ListarRefeicaoPorTempoRequest request);
-    Task<Response<FichaAlimentacao?>> RemoverRefeicaoNaFicha(RemoverRefeicaoNaFichaRequest request);
+    Task<Response<Refeicao?>> ListarRefeicaoAsync(ListarRefeicaoNaFichaRequest request);
+    Task<PagedResponse<List<Refeicao>?>> ListarRefeicaoPorTempoAsync(ListarRefeicaoPorTempoRequest request);
+    Task<Response<FichaAlimentacao?>> RemoverRefeicaoNaFichaAsync(RemoverRefeicaoNaFichaRequest request);
 }
