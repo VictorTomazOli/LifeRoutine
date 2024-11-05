@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeRoutineV0.Infra", "Life
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeRoutineV0.Api", "LifeRoutineV0.Api\LifeRoutineV0.Api.csproj", "{358BEEC1-5BC6-437A-A359-FE5122E2BDA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeRoutineV0.Application", "LifeRoutineV0.Application\LifeRoutineV0.Application.csproj", "{6DA96370-2044-4387-91E9-9CF839292073}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{358BEEC1-5BC6-437A-A359-FE5122E2BDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358BEEC1-5BC6-437A-A359-FE5122E2BDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{358BEEC1-5BC6-437A-A359-FE5122E2BDA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA96370-2044-4387-91E9-9CF839292073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA96370-2044-4387-91E9-9CF839292073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA96370-2044-4387-91E9-9CF839292073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA96370-2044-4387-91E9-9CF839292073}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

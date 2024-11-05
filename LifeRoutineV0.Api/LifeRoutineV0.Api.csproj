@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LifeRoutineV0.Application\LifeRoutineV0.Application.csproj" />
     <ProjectReference Include="..\LifeRoutineV0.Domain\LifeRoutineV0.Domain.csproj" />
     <ProjectReference Include="..\LifeRoutineV0.Infra\LifeRoutineV0.Infra.csproj" />
   </ItemGroup>

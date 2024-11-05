@@ -14,4 +14,10 @@ public class Alimento : BaseEntity
 
     public string Nome { get; private set; }
     public EGrupoAlimentar GrupoAlimentar { get; private set; }
+
+    public void AlterarAlimento(string nome, EGrupoAlimentar grupoAlimentar)
+    {
+        Nome = nome;
+        GrupoAlimentar = grupoAlimentar;
+    }
 }
