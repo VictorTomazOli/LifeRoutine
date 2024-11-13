@@ -3,6 +3,7 @@ using LifeRoutineV0.Domain.Entities;
 using LifeRoutineV0.Domain.Handlers;
 using LifeRoutineV0.Domain.Requests.UsuarioRequests;
 using LifeRoutineV0.Domain.Responses;
+using LifeRoutineV0.Domain.Services;
 
 namespace LifeRoutineV0.Api.Endpoints.UsuarioEndpoints;
 
@@ -14,8 +15,12 @@ public class AtualizarUsuarioEndpoint : IEndpoint
             .WithSummary("Atualiza um usuário existente")
             .Produces<Response<Usuario?>>();
 
-    public static async Task<IResult> HandleAsync(AtualizarUsuarioRequest request, IUsuarioHandler handler)
+    public static async Task<IResult> HandleAsync(AtualizarUsuarioRequest request, 
+        IUsuarioHandler handler, IUsuarioContextService contextService)
     {
+        var userId = contextService.GetUserId();
+        request.UserId = userId;
+
         var result = await handler.AtualizarAsync(request);
         return result.IsSuccess ? TypedResults.Ok(result) : TypedResults.BadRequest(result);
     }

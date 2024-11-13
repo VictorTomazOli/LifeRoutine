@@ -4,6 +4,7 @@ using LifeRoutineV0.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LifeRoutineV0.Infra.Migrations
 {
     [DbContext(typeof(LifeRoutineV0DbContext))]
-    partial class LifeRoutineV0DbContextModelSnapshot : ModelSnapshot
+    [Migration("20241108162352_SenhaTamanho")]
+    partial class SenhaTamanho
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

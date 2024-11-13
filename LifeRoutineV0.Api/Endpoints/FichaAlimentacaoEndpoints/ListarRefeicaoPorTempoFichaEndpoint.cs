@@ -3,6 +3,7 @@ using LifeRoutineV0.Domain.Entities;
 using LifeRoutineV0.Domain.Handlers;
 using LifeRoutineV0.Domain.Requests.FichaAlimentacaoRequests;
 using LifeRoutineV0.Domain.Responses;
+using LifeRoutineV0.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LifeRoutineV0.Api.Endpoints.FichaAlimentacaoEndpoints;
@@ -16,11 +17,13 @@ public class ListarRefeicaoPorTempoFichaEndpoint : IEndpoint
             .Produces<PagedResponse<List<Refeicao>?>>();
 
     public static async Task<IResult> HandleAsync(int id,[FromQuery] int pageSize,
-        [FromQuery] int pageNumber, IFichaAlimentacaoHandler handler)
+        [FromQuery] int pageNumber, IFichaAlimentacaoHandler handler, IUsuarioContextService contextService)
     {
+        var userId = contextService.GetUserId();
+
         var request = new ListarRefeicaoPorTempoRequest
         {
-            UserId = 1,
+            UserId = userId,
             FichaId = id,
             PageNumber = pageNumber,
             PageSize = pageSize,

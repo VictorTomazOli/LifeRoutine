@@ -17,6 +17,7 @@ public static class Endpoint
 
         endpoint.MapGroup("v1/alimentos")
             .WithTags("Alimentos")
+            .RequireAuthorization()
             .MapEndpoint<AtualizarAlimentoEndpoint>()
             .MapEndpoint<CriarAlimentoEndpoint>()
             .MapEndpoint<DeletarAlimentoEndpoint>()
@@ -25,6 +26,7 @@ public static class Endpoint
 
         endpoint.MapGroup("v1/ficha_alimentacao")
             .WithTags("Ficha Alimentação")
+            .RequireAuthorization()
             .MapEndpoint<AdicionarRefeicaoFichaEndpoint>()
             .MapEndpoint<AtualizarRefeicaoFichaEndpoint>()
             .MapEndpoint<CriarFichaAlimentacaoEndpoint>()
@@ -36,10 +38,13 @@ public static class Endpoint
 
         endpoint.MapGroup("v1/usuarios")
             .WithTags("Usuários")
+            .RequireAuthorization()
             .MapEndpoint<AtualizarSenhaUsuarioEndpoint>()
             .MapEndpoint<AtualizarUsuarioEndpoint>()
             .MapEndpoint<DeletarUsuarioEndpoint>()
-            .MapEndpoint<ListarUsuarioEndpoint>();
+            .MapEndpoint<ListarUsuarioEndpoint>()
+            .MapEndpoint<CriarUsuarioEndpoint>()
+            .MapEndpoint<LoginUsuarioEndpoint>();
     }
 
     public static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)

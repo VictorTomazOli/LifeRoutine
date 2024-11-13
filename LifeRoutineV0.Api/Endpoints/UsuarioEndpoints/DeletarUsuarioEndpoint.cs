@@ -3,6 +3,7 @@ using LifeRoutineV0.Domain.Entities;
 using LifeRoutineV0.Domain.Handlers;
 using LifeRoutineV0.Domain.Requests.UsuarioRequests;
 using LifeRoutineV0.Domain.Responses;
+using LifeRoutineV0.Domain.Services;
 
 namespace LifeRoutineV0.Api.Endpoints.UsuarioEndpoints;
 
@@ -14,11 +15,14 @@ public class DeletarUsuarioEndpoint : IEndpoint
             .WithSummary("Deleta um usuário existente")
             .Produces<Response<Usuario?>>();
 
-    public static async Task<IResult> HandleAsync(int id, IUsuarioHandler handler)
+    public static async Task<IResult> HandleAsync(int id, IUsuarioHandler handler, 
+        IUsuarioContextService contextService)
     {
+        var userId = contextService.GetUserId();
+
         var request = new DeletarUsuarioRequest
         {
-            UserId = id
+            UserId = userId
         };
 
         var result = await handler.DeletarAsync(request);

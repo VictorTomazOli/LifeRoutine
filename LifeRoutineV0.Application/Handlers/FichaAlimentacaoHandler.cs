@@ -15,7 +15,9 @@ public class FichaAlimentacaoHandler(IFichaAlimentacaoRepository repository) : I
     {
         try
         {
-            var fichaAlimentacao = await repository.ListarPorIdAsync(request.FichaId);
+            var fichaAlimentacao = await repository.
+                ListarFichaUsuario(request.UserId, request.FichaId, "Refeicoes");
+            
             if (fichaAlimentacao is null)
                 return new Response<Refeicao?>(null, EStatusCode.NotFound, "A ficha não foi encontrada");
 
@@ -41,7 +43,9 @@ public class FichaAlimentacaoHandler(IFichaAlimentacaoRepository repository) : I
     {
         try
         {
-            var fichaAlimentacao = await repository.ListarPorIdAsync(request.FichaId, ["Refeicoes"]);
+            var fichaAlimentacao = await repository.
+                ListarFichaUsuario(request.UserId, request.FichaId, "Refeicoes");
+
             if (fichaAlimentacao is null)
                 return new Response<FichaAlimentacao?>(null, EStatusCode.NotFound, "A ficha não foi encontrada");
 
@@ -115,7 +119,9 @@ public class FichaAlimentacaoHandler(IFichaAlimentacaoRepository repository) : I
     {
         try
         {
-            var fichaAlimentacao = await repository.ListarPorIdAsNoTracking(request.Id, ["Refeicoes"]);
+            var fichaAlimentacao = await repository.
+                ListarFichaUsuario(request.UserId, request.Id, "Refeicoes");
+
             if (fichaAlimentacao is null)
                 return new PagedResponse<FichaAlimentacao?>(null, EStatusCode.NotFound, "A ficha não foi encontrada");
 
@@ -158,7 +164,8 @@ public class FichaAlimentacaoHandler(IFichaAlimentacaoRepository repository) : I
             request.TempoInicial ??= DateTime.Now.DataInicial();
             request.TempoFinal ??= DateTime.Now.DataFinal();
 
-            var fichaAlimentacao = await repository.ListarPorIdAsNoTracking(request.FichaId, "Refeicoes", ["Alimentos"]);
+            var fichaAlimentacao = await repository.
+                ListarFichaUsuario(request.UserId, request.FichaId, "Refeicoes", ["Alimentos"]);
 
             if (fichaAlimentacao is null)
                 return new PagedResponse<List<Refeicao>?>(null, EStatusCode.NotFound, "A ficha não foi encontrada");
@@ -184,7 +191,9 @@ public class FichaAlimentacaoHandler(IFichaAlimentacaoRepository repository) : I
     {
         try
         {
-            var fichaAlimentacao = await repository.ListarPorIdAsync(request.FichaId, "Refeicoes", ["Alimentos"]);
+            var fichaAlimentacao = await repository.
+                ListarFichaUsuario(request.UserId, request.FichaId, "Refeicoes", ["Alimentos"]);
+
             if (fichaAlimentacao is null)
                 return new Response<FichaAlimentacao?>(null, EStatusCode.NotFound, "A ficha não foi encontrada");
 

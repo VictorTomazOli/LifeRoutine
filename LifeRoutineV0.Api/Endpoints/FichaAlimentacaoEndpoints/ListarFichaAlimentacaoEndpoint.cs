@@ -3,6 +3,7 @@ using LifeRoutineV0.Domain.Entities;
 using LifeRoutineV0.Domain.Handlers;
 using LifeRoutineV0.Domain.Requests.FichaAlimentacaoRequests;
 using LifeRoutineV0.Domain.Responses;
+using LifeRoutineV0.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LifeRoutineV0.Api.Endpoints.FichaAlimentacaoEndpoints;
@@ -16,11 +17,13 @@ public class ListarFichaAlimentacaoEndpoint : IEndpoint
             .Produces<PagedResponse<FichaAlimentacao?>>();
 
     public static async Task<IResult> HandleAsync(int id, [FromQuery] int pageSize,
-        [FromQuery] int pageNumber, IFichaAlimentacaoHandler handler)
+        [FromQuery] int pageNumber, IFichaAlimentacaoHandler handler, IUsuarioContextService contextService)
     {
+        var userId = contextService.GetUserId();
+
         var request = new ListarFichaAlimentacaoRequest
         {
-            UserId = 1,
+            UserId = userId,
             Id = id,
             PageNumber = pageNumber,
             PageSize = pageSize

@@ -12,6 +12,7 @@ public class Usuario : BaseEntity
         Email = email;
         Senha = senha;
         DataNascimento = dataNascimento;
+        FichaAlimentacaoId = 0;
     }
 
     public string Nome { get; private set; }

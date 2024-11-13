@@ -37,7 +37,7 @@ public class UsuarioMapping : IEntityTypeConfiguration<Usuario>
             .Property(x => x.SenhaHash)
             .HasColumnName("SenhaHash")
             .HasColumnType("NVARCHAR")
-            .HasMaxLength(50)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.DataNascimento)

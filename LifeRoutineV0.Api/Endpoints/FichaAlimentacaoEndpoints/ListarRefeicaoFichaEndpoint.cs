@@ -3,6 +3,7 @@ using LifeRoutineV0.Domain.Entities;
 using LifeRoutineV0.Domain.Handlers;
 using LifeRoutineV0.Domain.Requests.FichaAlimentacaoRequests;
 using LifeRoutineV0.Domain.Responses;
+using LifeRoutineV0.Domain.Services;
 
 namespace LifeRoutineV0.Api.Endpoints.FichaAlimentacaoEndpoints;
 
@@ -15,11 +16,13 @@ public class ListarRefeicaoFichaEndpoint : IEndpoint
             .Produces<Response<FichaAlimentacao?>>();
 
     public static async Task<IResult> HandleAsync(int id, int refeicaoId, 
-        IFichaAlimentacaoHandler handler)
+        IFichaAlimentacaoHandler handler, IUsuarioContextService contextService)
     {
+        var userId = contextService.GetUserId();
+
         var request = new ListarRefeicaoNaFichaRequest
         {
-            UserId = 1,
+            UserId = userId,
             FichaId = id,
             RefeicaoId = refeicaoId
         };
